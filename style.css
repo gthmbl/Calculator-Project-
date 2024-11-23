@@ -10,29 +10,44 @@ body {
 
 section {
     display: flex;
-    flex-wrap: wrap;
-    flex: 1;
+    flex-wrap: wrap; /* Allows wrapping if necessary */
+    justify-content: center; /* Center the buttons */
+    align-items: center;
     padding: 10px;
     font-size: 40px;
     font-weight: 300;
 }
 
 #output {
+    display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-end;
     gap: 15px;
+    padding: 10px;
+    height: 20%;
+}
+
+#input {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+    gap: 10px; /* Consistent spacing between buttons */
+    flex: 1;
+    padding: 10px;
+    box-sizing: border-box; /* Ensure padding is included in dimensions */
 }
 
 .btn {
-    flex-basis: calc(25% - 10px);
-    margin: 5px;
     font-size: 32px;
     height: 72px;
     border: 0;
     border-radius: 24px;
     cursor: pointer;
     color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .light,
@@ -62,3 +77,15 @@ section {
     background-color: #505266;
 }
 
+/* Responsive adjustments for smaller screens */
+@media (max-width: 600px) {
+    #input {
+        grid-template-columns: repeat(4, 1fr); /* Maintain 4 columns */
+        gap: 5px; /* Slightly reduce gap for smaller screens */
+    }
+
+    .btn {
+        font-size: 28px; /* Adjust font size for smaller screens */
+        height: 60px; /* Reduce button height */
+    }
+}
